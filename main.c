@@ -31,6 +31,6 @@ int main() {
 
   printf("Free list\n");
   head = free_list(head);
-  // printf("Printing list:\n");
-  // print_list(head);
+  printf("Printing list:\n");
+  print_list(head);
 }
