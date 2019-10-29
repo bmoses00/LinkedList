@@ -22,6 +22,18 @@ struct node * insert_front(struct node * node, int data) {
   return newHead;
 }
 
+struct node * insert_in_order(struct node * node, int data) {
+  struct node * head = node;
+  for ( ; node != NULL; node = node->next) {
+    if (node->next->i > data) {
+      struct node * new = create_node(data);
+      new->next = node->next;
+      node->next = new;
+    }
+  }
+  return head;
+}
+
 struct node * free_list(struct node * head) {
   if (head != NULL) {
     free_list(head->next);
