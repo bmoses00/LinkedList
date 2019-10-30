@@ -29,7 +29,7 @@ struct node * free_list(struct node * head) {
     free(head);
   }
   else
-    return NULL;
+    return head;
 }
 
 struct node * remove_node(struct node * front, int data) {

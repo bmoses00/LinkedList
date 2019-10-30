@@ -29,6 +29,7 @@ int main() {
   head = remove_node(head, 10);
   print_list(head);
 
+<<<<<<< HEAD
   printf("Insert 50\n");
   head = insert_in_order(head, 50);
 
@@ -49,4 +50,10 @@ int main() {
 
   printf("Returning 36\n");
   printf("%d\n", return_node(head, 36)->i);
+=======
+  printf("Free list\n");
+  head = free_list(head);
+  printf("Printing list:\n");
+  print_list(head);
+>>>>>>> 8260e46c4aa8aa5df8624a73de9a9455ca07043f
 }
