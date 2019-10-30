@@ -29,10 +29,24 @@ int main() {
   head = remove_node(head, 10);
   print_list(head);
 
-  printf("Insert 25\n");
-  head = insert_in_order(head, 25);
-  // printf("Free list\n");
-  // head = free_list(head);
+  printf("Insert 50\n");
+  head = insert_in_order(head, 50);
+
+  printf("Insert 20\n");
+  head = insert_in_order(head, 20);
+
+  printf("Insert 0\n");
+  head = insert_in_order(head, 0);
+
+  printf("Insert 2\n");
+  head = insert_in_order(head, 2);
+
   printf("Printing list:\n");
   print_list(head);
+
+  printf("Returning 20:\n");
+  printf("%d\n", return_node(head, 20)->i);
+
+  printf("Returning 36\n");
+  printf("%d\n", return_node(head, 36)->i);
 }
