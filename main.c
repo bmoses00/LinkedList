@@ -12,10 +12,10 @@ int main() {
   printf("Insert Thriller by Michael Jackson\n");
   head = insert_in_order(head, name, artist);
 
-  // strcpy(name, "Rocket Man");
-  // strcpy(artist, "Elton John");
-  // printf("Insert Rocket Man by Elton John\n");
-  // head = insert_in_order(head, name, artist);
+  strcpy(name, "Rocket Man");
+  strcpy(artist, "Elton John");
+  printf("Insert Rocket Man by Elton John\n");
+  head = insert_in_order(head, name, artist);
 
   // strcpy(name, "Tiny Dancer");
   // strcpy(artist, "Elton John");

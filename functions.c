@@ -55,7 +55,7 @@ struct node * insert_in_order(struct node * node, char newName[100], char newArt
   if (node == NULL) return insert_front(node, newName, newArtist);
 
   char nameAndArtist[200];
-  strcpy(nameAndArtist, strcat(newArtist, newName));
+  strcpy(nameAndArtist, strcat(newArtist, newName)); // strcat breaks newArtist
 
   char nodeNameAndArtist[200];
   strcpy(nodeNameAndArtist, strcat(node->artist, node->name));
