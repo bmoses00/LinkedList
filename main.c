@@ -17,11 +17,40 @@ int main() {
   printf("Insert Rocket Man by Elton John\n");
   head = insert_in_order(head, name, artist);
 
-  // strcpy(name, "Tiny Dancer");
-  // strcpy(artist, "Elton John");
-  // printf("Insert Tiny Dancer by Elton John\n");
-  // head = insert_in_order(head, name, artist);
+  strcpy(name, "Tiny Dancer");
+  strcpy(artist, "Elton John");
+  printf("Insert Tiny Dancer by Elton John\n");
+  head = insert_in_order(head, name, artist);
+
+  strcpy(name, "Time");
+  strcpy(artist, "Pink Floyd");
+  printf("Insert Time by Pink Floyd\n");
+  head = insert_in_order(head, name, artist);
+
+  strcpy(name, "Stressed Out");
+  strcpy(artist, "21 Pilots");
+  printf("Insert Stressed Out by 21 Pilots\n");
+  head = insert_in_order(head, name, artist);
+
+  strcpy(name, "Numb");
+  strcpy(artist, "Linkin Park");
+  printf("Insert Numb by Linkin Park\n");
+  head = insert_in_order(head, name, artist);
 
   print_list(head);
+
+  // print_list(head);
+
+  strcpy(name, "Stressed Out");
+  strcpy(artist, "21 Pilots");
+
+  head = remove_node(head, name, artist);
+
+  print_list(head);
+
+  printf("Freeing list\n");
+  head = free_list(head);
+
+
 
 }

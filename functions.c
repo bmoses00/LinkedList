@@ -34,44 +34,49 @@ struct node * free_list(struct node * head) {
 }
 
 struct node * remove_node(struct node * front, char newName[100], char newArtist[100]) {
-  // if (front->i == data) {
-  //   struct node * returnNode = front->next;
-  //   free(front);
-  //   return returnNode;
-  // }
-  // struct node * node = front;
-  // for ( ; node->next != NULL; node = node->next) {
-  //   if (node->next->i == data) {
-  //     struct node * nodeToFree = node->next;
-  //     node->next = node->next->next;
-  //     free(nodeToFree);
-  //     return front;
-  //   }
-  // }
-  // return front;
+
+  if (front->name == newName && front->artist == newArtist) {
+    struct node * returnNode = front->next;
+    free(front);
+    return returnNode;
+  }
+  struct node * node = front;
+  for ( ; node->next != NULL; node = node->next) {
+    if (node->next->name == newName && node->next->artist == newArtist) {
+      struct node * nodeToFree = node->next;
+      node->next = node->next->next;
+      free(nodeToFree);
+      return front;
+    }
+  }
+  return front;
+
 }
 
 struct node * insert_in_order(struct node * node, char newName[100], char newArtist[100]) {
   if (node == NULL) return insert_front(node, newName, newArtist);
 
-  char nameAndArtist[200];
-  strcpy(nameAndArtist, strcat(newArtist, newName)); // strcat breaks newArtist
-
-  char nodeNameAndArtist[200];
-  strcpy(nodeNameAndArtist, strcat(node->artist, node->name));
-
-  printf("%s\n", nameAndArtist);
-  if (strcmp(nodeNameAndArtist, nameAndArtist) >= 0)
+  if (node->next == NULL
+    ||
+      (strcmp(node->next->artist, newArtist) >= 0
+    && strcmp(node->next->name, newName) >= 0))
     return insert_front(node, newName, newArtist);
+
 
   struct node * head = node;
   for ( ; ; node = node->next) {
-    strcpy(nodeNameAndArtist, strcat(node->next->artist, node->next->name));
-    if (node->next == NULL || strcmp(nodeNameAndArtist, nameAndArtist) > 0) {
+
+    if (
+      node->next == NULL
+      ||
+        strcmp(node->next->artist, newArtist) > 0
+    || (strcmp(node->next->artist, newArtist) == 0 && strcmp(node->next->name, newName) >= 0)) {
+
       struct node * new = create_node(newName, newArtist);
       new->next = node->next;
       node->next = new;
       return head;
+
     }
   }
   return head;
